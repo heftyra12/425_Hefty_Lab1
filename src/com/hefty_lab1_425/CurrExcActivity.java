@@ -37,8 +37,6 @@ implements OnEditorActionListener, OnClickListener {
 	
     // define the SharedPreferences object
     private SharedPreferences savedValues;
-    /*private String currPeso ="";
-    private String prevPeso ="";*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,37 +79,35 @@ implements OnEditorActionListener, OnClickListener {
 	/*@Override*/
 	public void onClick(View v) {
 		if (!usdInputAmount.getText().toString().equals("")){
-			//prevExc.setText("0.00");
 			boolean newValue = false;
 			if (!newExc.getText().toString().equals("")){
 				newValue = true;
 			}
 			switch (v.getId()){
 			case R.id.peso: 
-				/*currExc.setText("13.24");
-				if(newValue){
-					prevExc.setText(currExc.getText().toString());
-					currExc.setText(newExc.getText().toString());
-					newExc.setText("");
-				}*/
-				
 				if (savedValues.getString("currPeso","").equals("")){
-					System.out.println("no peso");
 					// no stored peso
+					System.out.println("no peso");
 					currExc.setText("13.24");
 					prevExc.setText("0.00");
 					storeData("currPeso", "13.24");
 					storeData("prevPeso", "0.00");
 				} else {
 					// found stored peso
-					currExc.setText(savedValues.getString("currPeso", ""));
-					if (!savedValues.getString("prevPeso","").equals("")){
-						prevExc.setText(savedValues.getString("prevPeso", ""));
+					if (savedValues.getString("currPeso",  "").equals(currExc.getText().toString())){
+						// same currPeso as what is stored
+						System.out.println("same peso value found | currPeso: " + savedValues.getString("currPeso","") + " | currExc: " + currExc.getText().toString());
+						currExc.setText(savedValues.getString("currPeso", ""));
+						if (!savedValues.getString("prevPeso","").equals("")){
+							prevExc.setText(savedValues.getString("prevPeso", ""));
+						}
+					} else {
+						// new currPeso value
+						System.out.println("new peso value to store");
+						storeData("prevPeso", savedValues.getString("currPeso",""));
+						prevExc.setText(savedValues.getString("currPeso",""));
+						storeData("currPeso", currExc.getText().toString());
 					}
-					Editor editor = savedValues.edit();
-			    	editor.putString("currPeso", currExc.getText().toString());
-			    	editor.commit();
-			    	System.out.println("here 2 | currExc: " + currExc.getText().toString());
 				}
 				break;
 			case R.id.euro:
