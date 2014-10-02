@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hefty Currency Exchange</string>
+    <string name="action_settings">Settings</string>
+    <string name="usdLabel">Enter USD:</string>
+    <string name="pesoLabel">Mexican Peso</string>
+    <string name="euroLabel">Euro</string>
+    <string name="yuanLabel">Chinese Yuan</string>
+    <string name="dollarLabel">Canadian Dollar</string>
+    <string name="outputLabel">Result</string>
+    <string name="usdInputLabel"/>
+    <string name="outputResultLabel"/>
+    <string name="prevLabel">Previous</string>
+    <string name="currLabel">Current</string>
+    <string name="lastUpd">Last Updated</string>
+    <string name="convertButton">Convert Currency</string>
+    <string name="newLabel">New</string>
+
+</resources>

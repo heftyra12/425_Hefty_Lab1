@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    tools:context="com.hefty_lab1_425.CurrExcActivity" >
+
+    <EditText
+        android:id="@+id/usdLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/usdInputLabel"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/usdLabel" />
+
+    <EditText
+        android:id="@+id/usdInputLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/usdInputLabel" />
+
+    <EditText
+        android:id="@+id/outputLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/usdLabel"
+        android:layout_marginBottom="22dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/outputLabel" />
+
+    <EditText
+        android:id="@+id/outputResult"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/outputLabel"
+        android:layout_alignBottom="@+id/outputLabel"
+        android:layout_alignLeft="@+id/currCurr"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/outputResultLabel" />
+
+    <TextView
+        android:id="@+id/prevLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/prevCurr"
+        android:layout_toLeftOf="@+id/CONVERT"
+        android:text="@string/prevLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/prevCurr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dollar"
+        android:ems="10"
+        android:gravity="center_vertical|right"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/currLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/prevLabel"
+        android:layout_alignTop="@+id/currCurr"
+        android:text="@string/currLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/currCurr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/prevCurr"
+        android:ems="10"
+        android:gravity="center_vertical|right"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/dollar"
+        android:layout_below="@+id/usdLabel"
+        android:gravity="left"
+        android:text="@string/pesoLabel" />
+
+    <Button
+        android:id="@+id/dollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/yuan"
+        android:layout_alignBottom="@+id/yuan"
+        android:layout_alignParentLeft="true"
+        android:gravity="left"
+        android:text="@string/dollarLabel" />
+
+    <Button
+        android:id="@+id/euro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/yuan"
+        android:layout_alignLeft="@+id/yuan"
+        android:layout_alignParentRight="true"
+        android:gravity="left"
+        android:text="@string/euroLabel" />
+
+    <Button
+        android:id="@+id/yuan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/peso"
+        android:layout_toRightOf="@+id/dollar"
+        android:gravity="left"
+        android:text="@string/yuanLabel" />
+
+    <Button
+        android:id="@+id/CONVERT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/outputLabel"
+        android:layout_centerHorizontal="true"
+        android:text="@string/convertButton" />
+
+    <TextView
+        android:id="@+id/newLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/currLabel"
+        android:layout_below="@+id/currCurr"
+        android:text="@string/newLabel"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/newCurr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/newLabel"
+        android:ems="10"
+        android:gravity="center_vertical|right"
+        android:inputType="numberDecimal" />
+
+</RelativeLayout>
