@@ -1,11 +1,7 @@
 package com.hefty_lab1_425;
-
-import java.math.BigDecimal;
-
 import com.hefty_lab1_425.R;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.content.SharedPreferences;
@@ -32,7 +27,6 @@ implements OnEditorActionListener, OnClickListener {
 	private Button convertButton;
 	private EditText currExc;
 	private EditText prevExc;
-	private EditText newExc;
 	private EditText outputResult;
 	
     // define the SharedPreferences object
@@ -53,7 +47,6 @@ implements OnEditorActionListener, OnClickListener {
 		convertButton = (Button) findViewById(R.id.CONVERT);
 		currExc = (EditText) findViewById(R.id.currCurr);
 		prevExc = (EditText) findViewById(R.id.prevCurr);
-		newExc = (EditText) findViewById(R.id.newCurr);
 		outputResult = (EditText) findViewById(R.id.outputResult);
 		
 		// set the listeners
@@ -79,31 +72,27 @@ implements OnEditorActionListener, OnClickListener {
 	/*@Override*/
 	public void onClick(View v) {
 		if (!usdInputAmount.getText().toString().equals("")){
-			boolean newValue = false;
-			if (!newExc.getText().toString().equals("")){
-				newValue = true;
-			}
 			switch (v.getId()){
 			case R.id.peso: 
 				if (savedValues.getString("currPeso","").equals("")){
 					// no stored peso
-					System.out.println("no peso");
+					//System.out.println("no peso");
 					currExc.setText("13.24");
 					prevExc.setText("0.00");
-					storeData("currPeso", "13.24");
+					storeData("currPeso", currExc.getText().toString());
 					storeData("prevPeso", "0.00");
 				} else {
 					// found stored peso
 					if (savedValues.getString("currPeso",  "").equals(currExc.getText().toString())){
 						// same currPeso as what is stored
-						System.out.println("same peso value found | currPeso: " + savedValues.getString("currPeso","") + " | currExc: " + currExc.getText().toString());
+						//System.out.println("same peso value found | currPeso: " + savedValues.getString("currPeso","") + " | currExc: " + currExc.getText().toString());
 						currExc.setText(savedValues.getString("currPeso", ""));
 						if (!savedValues.getString("prevPeso","").equals("")){
 							prevExc.setText(savedValues.getString("prevPeso", ""));
 						}
 					} else {
 						// new currPeso value
-						System.out.println("new peso value to store");
+						//System.out.println("new peso value to store");
 						storeData("prevPeso", savedValues.getString("currPeso",""));
 						prevExc.setText(savedValues.getString("currPeso",""));
 						storeData("currPeso", currExc.getText().toString());
@@ -111,27 +100,73 @@ implements OnEditorActionListener, OnClickListener {
 				}
 				break;
 			case R.id.euro:
-				currExc.setText("0.77");
-				if(newValue){
-					prevExc.setText(currExc.getText().toString());
-					currExc.setText(newExc.getText().toString());
-					newExc.setText("");
+				if (savedValues.getString("currPeso","").equals("")){
+					// no stored euro
+					currExc.setText("0.77");
+					prevExc.setText("0.00");
+					storeData("currEuro", currExc.getText().toString());
+					storeData("prevEuro", "0.00");
+				} else {
+					// found stored euro
+					if (savedValues.getString("currEuro",  "").equals(currExc.getText().toString())){
+						// same currEuro as what is stored
+						currExc.setText(savedValues.getString("currEuro", ""));
+						if (!savedValues.getString("prevEuro","").equals("")){
+							prevExc.setText(savedValues.getString("prevEuro", ""));
+						}
+					} else {
+						// new currEuro value
+						storeData("prevEuro", savedValues.getString("currEuro",""));
+						prevExc.setText(savedValues.getString("currEuro",""));
+						storeData("currEuro", currExc.getText().toString());
+					}
 				}
 				break;
 			case R.id.yuan:
-				currExc.setText("6.14");
-				if(newValue){
-					prevExc.setText(currExc.getText().toString());
-					currExc.setText(newExc.getText().toString());
-					newExc.setText("");
+				if (savedValues.getString("currYuan","").equals("")){
+					// no stored Yuan
+					//System.out.println("no Yuan");
+					currExc.setText("6.14");
+					prevExc.setText("0.00");
+					storeData("currYuan", currExc.getText().toString());
+					storeData("prevYuan", "0.00");
+				} else {
+					// found stored Yuan
+					if (savedValues.getString("currYuan",  "").equals(currExc.getText().toString())){
+						// same currYuan as what is stored
+						currExc.setText(savedValues.getString("currYuan", ""));
+						if (!savedValues.getString("prevYuan","").equals("")){
+							prevExc.setText(savedValues.getString("prevYuan", ""));
+						}
+					} else {
+						// new currPeso value
+						storeData("prevYuan", savedValues.getString("currYuan",""));
+						prevExc.setText(savedValues.getString("currYuan",""));
+						storeData("currYuan", currExc.getText().toString());
+					}
 				}
 				break;
 			case R.id.dollar:
-				currExc.setText("1.11");
-				if(newValue){
-					prevExc.setText(currExc.getText().toString());
-					currExc.setText(newExc.getText().toString());
-					newExc.setText("");
+				if (savedValues.getString("currDollar","").equals("")){
+					// no stored dollar
+					currExc.setText("1.11");
+					prevExc.setText("0.00");
+					storeData("currDollar", currExc.getText().toString());
+					storeData("prevDollar", "0.00");
+				} else {
+					// found stored dollar
+					if (savedValues.getString("currDollar",  "").equals(currExc.getText().toString())){
+						// same currDollar as what is stored
+						currExc.setText(savedValues.getString("currDollar", ""));
+						if (!savedValues.getString("prevDollar","").equals("")){
+							prevExc.setText(savedValues.getString("prevDollar", ""));
+						}
+					} else {
+						// new currDollar value
+						storeData("prevDollar", savedValues.getString("currDollar",""));
+						prevExc.setText(savedValues.getString("currDollar",""));
+						storeData("currDollar", currExc.getText().toString());
+					}
 				}
 				break;
 			case R.id.CONVERT:

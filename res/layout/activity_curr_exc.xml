@@ -26,29 +26,6 @@
         android:inputType="numberDecimal"
         android:text="@string/usdInputLabel" />
 
-    <EditText
-        android:id="@+id/outputLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/usdLabel"
-        android:layout_marginBottom="22dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/outputLabel" />
-
-    <EditText
-        android:id="@+id/outputResult"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/outputLabel"
-        android:layout_alignBottom="@+id/outputLabel"
-        android:layout_alignLeft="@+id/currCurr"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/outputResultLabel" />
-
     <TextView
         android:id="@+id/prevLabel"
         android:layout_width="wrap_content"
@@ -134,27 +111,32 @@
         android:id="@+id/CONVERT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/outputLabel"
+        android:layout_below="@+id/currCurr"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
         android:text="@string/convertButton" />
 
-    <TextView
-        android:id="@+id/newLabel"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/outputResult"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/currLabel"
-        android:layout_below="@+id/currCurr"
-        android:text="@string/newLabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_alignLeft="@+id/currCurr"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/CONVERT"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/outputResultLabel" />
 
     <EditText
-        android:id="@+id/newCurr"
+        android:id="@+id/outputLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/newLabel"
+        android:layout_alignBaseline="@+id/outputResult"
+        android:layout_alignBottom="@+id/outputResult"
+        android:layout_toLeftOf="@+id/currCurr"
         android:ems="10"
-        android:gravity="center_vertical|right"
-        android:inputType="numberDecimal" />
+        android:inputType="text"
+        android:text="@string/outputLabel" />
 
 </RelativeLayout>
