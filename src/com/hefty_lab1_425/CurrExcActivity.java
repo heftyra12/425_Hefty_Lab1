@@ -64,7 +64,6 @@ implements OnEditorActionListener, OnClickListener {
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (actionId == EditorInfo.IME_ACTION_DONE ||
             actionId == EditorInfo.IME_ACTION_UNSPECIFIED) {
-            /*calculateAndDisplay();*/
         }        
         return false;
     }
@@ -100,7 +99,7 @@ implements OnEditorActionListener, OnClickListener {
 				}
 				break;
 			case R.id.euro:
-				if (savedValues.getString("currPeso","").equals("")){
+				if (savedValues.getString("currEuro","").equals("")){
 					// no stored euro
 					currExc.setText("0.77");
 					prevExc.setText("0.00");
@@ -125,7 +124,6 @@ implements OnEditorActionListener, OnClickListener {
 			case R.id.yuan:
 				if (savedValues.getString("currYuan","").equals("")){
 					// no stored Yuan
-					//System.out.println("no Yuan");
 					currExc.setText("6.14");
 					prevExc.setText("0.00");
 					storeData("currYuan", currExc.getText().toString());
@@ -184,7 +182,7 @@ implements OnEditorActionListener, OnClickListener {
 		Editor editor = savedValues.edit();
     	editor.putString(key, value);
     	editor.commit();
-    	System.out.println("Data stored | key: " + key + " | value: " + value);
+    	//System.out.println("Data stored | key: " + key + " | value: " + value);
 	}
 	
 	@Override
